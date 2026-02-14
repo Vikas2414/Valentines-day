@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>Happy Valentine's Day ❤️</title>
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+<title>My Forever Valentine ❤️</title>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
 <style>
@@ -14,7 +14,7 @@
     body {
         height: 100vh;
         height: 100dvh;
-        /* Romantic Red to Dark Night Gradient */
+        /* Deep Romantic Red Gradient */
         background: radial-gradient(circle at center, #880e4f 0%, #1a001a 100%);
         font-family: 'Nunito', sans-serif;
         display: flex;
@@ -24,14 +24,14 @@
         color: white;
     }
 
-    /* --- FLOATING HEARTS BACKGROUND --- */
+    /* --- BACKGROUND PARTICLES --- */
     #bg-container {
         position: fixed; top: 0; left: 0; width: 100%; height: 100%;
         pointer-events: none; z-index: 0;
     }
     .heart-bg {
         position: absolute; opacity: 0.5;
-        animation: floatUp 8s linear infinite;
+        animation: floatUp 10s linear infinite;
         font-size: 20px;
         color: #ff4081;
         text-shadow: 0 0 5px #ff80ab;
@@ -44,91 +44,81 @@
 
     /* --- MAIN CARD --- */
     .container {
-        background: rgba(255, 255, 255, 0.1);
-        backdrop-filter: blur(15px);
-        -webkit-backdrop-filter: blur(15px);
-        padding: 25px;
-        border-radius: 25px;
-        width: 90%;
-        max-width: 400px;
-        max-height: 95vh;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 20px; /* Reduced padding for more text space */
+        border-radius: 20px;
+        width: 95%;
+        max-width: 420px;
+        height: 90vh; /* Taller for the long letter */
         display: flex;
         flex-direction: column;
-        box-shadow: 0 0 50px rgba(255, 0, 80, 0.3);
+        box-shadow: 0 0 60px rgba(255, 0, 80, 0.4);
         text-align: center;
         position: relative;
         z-index: 10;
-        border: 1px solid rgba(255, 255, 255, 0.2);
+        border: 4px solid #d81b60;
     }
 
+    /* --- HEADER --- */
     h1 {
-        font-family: 'Great Vibes', cursive;
-        color: #ff80ab; 
-        margin-bottom: 5px;
-        font-size: 42px;
+        font-family: 'Dancing Script', cursive;
+        color: #c2185b; 
+        margin: 5px 0 5px 0;
+        font-size: 36px;
         line-height: 1.2;
-        text-shadow: 0 2px 10px rgba(0,0,0,0.5);
     }
 
-    .countdown {
+    .subtitle {
         font-size: 14px;
-        color: #fff;
-        background: rgba(0,0,0,0.3);
-        padding: 5px 15px;
-        border-radius: 50px;
+        color: #880e4f;
+        margin-bottom: 10px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        border-bottom: 1px solid #ff80ab;
+        padding-bottom: 8px;
         display: inline-block;
-        margin: 0 auto 15px auto;
-        border: 1px solid #ff80ab;
     }
 
-    /* --- MESSAGE BOX --- */
-    .message-box {
-        background: rgba(255, 255, 255, 0.9);
-        border-radius: 15px;
-        padding: 20px;
-        margin-bottom: 20px;
+    /* --- THE LONG LETTER (SCROLLABLE) --- */
+    .letter-area {
+        flex-grow: 1;
+        background: #fff0f5; /* Light Pink */
+        border: 1px solid #f8bbd0;
+        border-radius: 10px;
+        padding: 15px;
         text-align: left;
-        font-size: 16px;
+        font-size: 15px; /* Readable size */
         color: #4a001e;
-        line-height: 1.6;
-        white-space: pre-line;
+        line-height: 1.7; /* Good spacing */
+        white-space: pre-wrap; /* Preserves paragraphs */
         overflow-y: auto;
-        max-height: 35vh;
-        min-height: 100px; 
-        box-shadow: inset 0 2px 10px rgba(0,0,0,0.1);
+        box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);
+        margin-bottom: 15px;
+        position: relative;
     }
     
-    /* --- GIF CONTAINER --- */
-    .gif-container {
-        width: 100%;
-        height: 180px;
-        border-radius: 15px;
-        overflow: hidden;
-        margin-bottom: 20px;
-        box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-        flex-shrink: 0;
-        border: 2px solid #fff;
-    }
-    .gif-container img {
-        width: 100%; height: 100%; object-fit: cover;
-    }
+    /* Custom Scrollbar */
+    .letter-area::-webkit-scrollbar { width: 5px; }
+    .letter-area::-webkit-scrollbar-thumb { background: #d81b60; border-radius: 10px; }
 
     /* --- BUTTONS --- */
     .btn-group {
         display: flex;
         justify-content: center;
-        gap: 15px;
+        gap: 10px;
         width: 100%;
+        margin-bottom: 5px;
     }
 
     button {
-        padding: 14px 24px;
+        padding: 14px 20px;
         border: none;
         border-radius: 50px;
         font-size: 16px;
         font-weight: 800;
         cursor: pointer;
-        transition: transform 0.2s, box-shadow 0.2s;
+        transition: transform 0.2s;
         width: 100%;
         -webkit-tap-highlight-color: transparent;
     }
@@ -136,32 +126,31 @@
     button:active { transform: scale(0.95); }
 
     #startBtn {
-        background: linear-gradient(to right, #ff4081, #f50057);
+        background: linear-gradient(to right, #d81b60, #ff4081);
         color: #fff;
-        box-shadow: 0 0 20px rgba(255, 64, 129, 0.5);
+        box-shadow: 0 5px 20px rgba(216, 27, 96, 0.4);
+        margin-top: auto; /* Push to bottom initially */
+        margin-bottom: 20px;
     }
 
     #yesBtn {
-        background: #00e676; 
-        color: #004d40;
-        box-shadow: 0 4px 15px rgba(0, 230, 118, 0.4);
+        background: #00c853; 
+        color: white;
+        box-shadow: 0 4px 15px rgba(0, 200, 83, 0.3);
     }
 
-    #loveBtn {
-        background: #ffea00; 
+    #cryBtn {
+        background: #ffeb3b; 
         color: #bf360c;
-        box-shadow: 0 4px 15px rgba(255, 234, 0, 0.4);
+        box-shadow: 0 4px 15px rgba(255, 235, 59, 0.4);
     }
 
     .hidden { display: none !important; }
-    
-    /* Heartbeat animation for 7 Days text */
-    .pulse { animation: pulse 1.5s infinite; }
-    @keyframes pulse {
-        0% { transform: scale(1); }
-        50% { transform: scale(1.05); }
-        100% { transform: scale(1); }
-    }
+
+    /* --- ANIMATIONS --- */
+    .fade-in { animation: fadeIn 2s ease-in; }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
 </style>
 </head>
 <body>
@@ -170,22 +159,26 @@
 <div id="bg-container"></div>
 
 <div class="container">
-    <h1 id="mainTitle">Happy Valentine's ❤️</h1>
-    <div class="countdown pulse">Only 7 Days Left! 💍</div>
+    <h1 id="mainTitle">To My Sejal... ❤️</h1>
+    
+    <div id="introView">
+        <div style="font-size:60px; margin: 40px 0;">💌</div>
+        <p style="color:#880e4f; font-size: 18px; margin-bottom: 40px;">
+            I have written something for you.<br>
+            Something about us.<br>
+            Something about forever.
+        </p>
+        <button id="startBtn">Read The Letter ✨</button>
+    </div>
 
-    <button id="startBtn">Read My Heart 💌</button>
-
-    <div id="content" class="hidden">
+    <div id="letterView" class="hidden">
+        <div class="subtitle">7 Days to Forever 💍</div>
         
-        <div class="gif-container">
-            <img src="https://media.giphy.com/media/26BRv0ThflsHCqDrG/giphy.gif" alt="Love">
-        </div>
-
-        <div class="message-box" id="typingText"></div>
+        <div class="letter-area" id="typingText"></div>
 
         <div class="btn-group">
-            <button id="yesBtn">I'm Ready! 💍</button>
-            <button id="loveBtn">Love You! ❤️</button>
+            <button id="yesBtn">I'm Yours, Viku ❤️</button>
+            <button id="cryBtn">Happily Crying 😭</button>
         </div>
     </div>
 </div>
@@ -193,35 +186,54 @@
 <script>
 // --- ELEMENTS ---
 const startBtn = document.getElementById("startBtn");
-const content = document.getElementById("content");
+const introView = document.getElementById("introView");
+const letterView = document.getElementById("letterView");
 const typingText = document.getElementById("typingText");
 const yesBtn = document.getElementById("yesBtn");
-const loveBtn = document.getElementById("loveBtn");
+const cryBtn = document.getElementById("cryBtn");
 const musicFrame = document.getElementById("music");
-const mainTitle = document.getElementById("mainTitle");
 
-// --- VIKU'S FINAL MESSAGE ---
+// --- THE EMOTIONAL LETTER ---
 const message = 
-`My Dearest Seju ❤️
+`My Dearest Seju,
 
-Happy Valentine's Day! 🌹
+Happy Valentine's Day. 🌹
 
-This is a very special one.
-Not because of the chocolates or roses, but because this is our LAST Valentine's Day as "Boyfriend & Girlfriend".
+I was looking at the calendar today.
+Today is Feb 14th.
+Next Saturday is Feb 21st.
+Exactly 7 days.
+Just 168 hours left until you officially become mine forever.
 
-Look at the calendar.
-Today is Feb 14.
-Next Saturday is Feb 21.
-Exactly 7 DAYS to go! ⏳
+I’ve been thinking about our journey.
+Do you remember where we started?
+From those first nervous messages to our "Sunflower & Chai" dates. 🌻☕
+We have had exactly 48 Dates together.
+48 times I looked at you and thought, "Yes, she is the one."
 
-Next year, you will be my Wife.
-My lifetime investment.
-My permanent roommate.
-My "Sunflower & Chai" partner forever. 🌻
+This last week, I tried to make you feel special digitally.
+I sent you a Rose 🌹, I Proposed (again) 💍, I sent Chocolates 🍫, a Teddy 🧸, a Promise 📜, a Hug 🫂, and yesterday, a Kiss 💋.
+7 Days. 7 Websites.
+Just to see that smile on your face while you stress about the wedding prep.
 
-Are you ready to start this crazy, beautiful adventure in Chittorgarh?
+But all of that was just a trailer.
+The real movie starts in 7 days in Chittorgarh. 🏰
 
-I love you infinite! ❤️`;
+Start packing your bags, Mrs. Jeweler-to-be.
+Pack your anger (which I will handle),
+Pack your smiles (which are my profit),
+And pack your dreams (which we will build together).
+
+I promise you, our future will be more beautiful than any code I can write.
+
+Safar khoobsurat tha, par manzil aur bhi haseen hogi...
+Ab bas 7 din aur, fir tu hamesha ke liye meri hogi. ❤️
+
+I love you, Seju.
+See you at the Mandap.
+
+Yours,
+Viku.`;
 
 // Safe Emoji Typing
 const messageArray = Array.from(message);
@@ -232,14 +244,14 @@ function createBg() {
     if (!container) return;
     const el = document.createElement('div');
     el.classList.add('heart-bg');
-    el.innerHTML = '❤️';
+    el.innerHTML = Math.random() > 0.5 ? '❤️' : '✨';
     el.style.left = Math.random() * 100 + 'vw';
-    el.style.animationDuration = (Math.random() * 3 + 4) + 's';
+    el.style.animationDuration = (Math.random() * 5 + 5) + 's';
     el.style.fontSize = (Math.random() * 20 + 10) + 'px';
     container.appendChild(el);
-    setTimeout(() => { el.remove(); }, 7000);
+    setTimeout(() => { el.remove(); }, 8000);
 }
-setInterval(createBg, 200);
+setInterval(createBg, 300);
 
 // --- TYPING ANIMATION ---
 let charIndex = 0;
@@ -247,25 +259,42 @@ function typeEffect() {
     if (charIndex < messageArray.length) {
         typingText.textContent += messageArray[charIndex];
         charIndex++;
+        // Auto scroll to bottom as it types
         typingText.scrollTop = typingText.scrollHeight; 
-        setTimeout(typeEffect, 30); 
+        setTimeout(typeEffect, 25); // Speed of typing
     }
 }
 
 // --- START ACTION ---
 startBtn.onclick = () => {
-    startBtn.style.display = "none";
-    content.classList.remove("hidden");
+    introView.style.display = "none";
+    letterView.classList.remove("hidden");
+    letterView.classList.add("fade-in");
     
-    // Play "Tum Hi Ho" or similar romantic instrumental
+    // Play Emotional Song (Janam Janam Instrumental or similar)
     if (musicFrame) musicFrame.src = "https://www.youtube.com/embed/5qap5aO4i9A?autoplay=1&loop=1"; 
     
-    typeEffect();
+    // Small delay before typing starts
+    setTimeout(typeEffect, 500);
 };
 
-// --- FIREWORKS FUNCTION ---
+// --- GRAND FINALE FIREWORKS ---
 function triggerFireworks() {
-    var duration = 5 * 1000;
+    // 1. Change Content
+    document.querySelector('.container').innerHTML = `
+        <div class="fade-in">
+            <h1 style="font-size: 40px; color: #d81b60; margin-top: 50px;">SHE SAID YES! ❤️</h1>
+            <p style="font-size: 20px; margin: 30px 0; color: #4a001e; font-weight: bold;">
+                The Countdown Ends.<br>
+                The Forever Begins.<br><br>
+                See you on Feb 21st! 💍
+            </p>
+            <div style="font-size: 80px; margin-top: 20px;">🤵👰</div>
+        </div>
+    `;
+
+    // 2. Massive Fireworks
+    var duration = 10 * 1000;
     var animationEnd = Date.now() + duration;
     var defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
 
@@ -280,32 +309,17 @@ function triggerFireworks() {
             return clearInterval(interval);
         }
 
-        var particleCount = 50 * (timeLeft / duration);
-        // Random fireworks
+        var particleCount = 100 * (timeLeft / duration);
         confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } }));
         confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } }));
     }, 250);
 }
 
-// --- BUTTON ACTIONS ---
-function finishCelebration() {
-    document.querySelector('.container').innerHTML = `
-        <div>
-            <h1 style="font-size: 36px; color: #ff80ab;">See You at the Mandap! 💍</h1>
-            <p style="font-size: 18px; margin: 20px 0;">
-                7 Days Left.<br>
-                Countdown Begins!<br>
-                <b>I Love You, Sejal!</b>
-            </p>
-            <div style="font-size: 60px;">👫🏡❤️</div>
-        </div>
-    `;
-    triggerFireworks();
-}
-
-yesBtn.onclick = finishCelebration;
-loveBtn.onclick = finishCelebration;
+// Attach to both buttons
+yesBtn.onclick = triggerFireworks;
+cryBtn.onclick = triggerFireworks;
 
 </script>
 </body>
 </html>
+
